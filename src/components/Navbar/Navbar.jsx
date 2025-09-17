@@ -1,6 +1,6 @@
 // import React, { use, useContext } from "react";
 import { use } from "react";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { FirebaseAuthContext } from "../contexts/FirebaseAuthContext";
 
 // import { FirebaseAuthContext } from "../contexts/FirebaseAuthContext";
@@ -10,9 +10,9 @@ const Navbar = () => {
     // const userInfo = useContext(FirebaseAuthContext);
     // console.log('hey', userInfo)
     
-    const userInfo = use(FirebaseAuthContext)
-    console.log(userInfo)
-    
+    const {user} = use(FirebaseAuthContext)
+    console.log(user)
+
     const links = <>
         
             <li><NavLink to='/' className={({isActive}) =>isActive ? 'bg-green-300 text-black font-bold' : ''}>Home</NavLink></li>
@@ -62,7 +62,10 @@ const Navbar = () => {
           </ul>
         </div>
         <div className="navbar-end">
-          <a className="btn">Button</a>
+          {
+            user ? <a className="btn">Sign Out</a> : <Link to='/login'>Sign In</Link>
+          }
+          
         </div>
       </div>
     </div>
