@@ -13,6 +13,7 @@ import Register from './components/Register/Register.jsx';
 import FirebaseAuthProvider from './components/contexts/FirebaseAuthProvider.jsx';
 import Orders from './components/Orders/Orders.jsx';
 import Profile from './components/Profile/Profile.jsx';
+import PrivateRoute from './Routes/PrivateRoute.jsx';
 
 const router = createBrowserRouter([
   {
@@ -33,7 +34,7 @@ const router = createBrowserRouter([
       },
       {
         path:"/orders",
-        Component: Orders
+        element: <PrivateRoute><Orders></Orders></PrivateRoute>
       },
       {
         path:"/profile",
