@@ -1,7 +1,18 @@
-import React from "react";
+// import React, { use, useContext } from "react";
+import { use } from "react";
 import { NavLink } from "react-router-dom";
+import { FirebaseAuthContext } from "../contexts/FirebaseAuthContext";
+
+// import { FirebaseAuthContext } from "../contexts/FirebaseAuthContext";
 
 const Navbar = () => {
+     
+    // const userInfo = useContext(FirebaseAuthContext);
+    // console.log('hey', userInfo)
+    
+    const userInfo = use(FirebaseAuthContext)
+    console.log(userInfo)
+    
     const links = <>
         
             <li><NavLink to='/' className={({isActive}) =>isActive ? 'bg-green-300 text-black font-bold' : ''}>Home</NavLink></li>
