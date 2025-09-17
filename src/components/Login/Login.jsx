@@ -1,11 +1,12 @@
 import React, { use } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { FirebaseAuthContext } from "../contexts/FirebaseAuthContext";
 
 const Login = () => {
 
   const {signInUser} = use(FirebaseAuthContext)
   const navigate = useNavigate();
+  const location = useLocation();
 
   const handleLogin = e =>{
 
@@ -18,7 +19,7 @@ const Login = () => {
        signInUser(email, password)
        .then(result =>{
         console.log(result.user)
-        navigate('/')
+        navigate(location?.state || '/')
        })
        .catch(error =>{
         console.log(error)
