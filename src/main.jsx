@@ -14,6 +14,7 @@ import FirebaseAuthProvider from './components/contexts/FirebaseAuthProvider.jsx
 import Orders from './components/Orders/Orders.jsx';
 import Profile from './components/Profile/Profile.jsx';
 import PrivateRoute from './Routes/PrivateRoute.jsx';
+import Dashboard from './components/Dashboard/Dashboard.jsx';
 
 const router = createBrowserRouter([
   {
@@ -39,7 +40,12 @@ const router = createBrowserRouter([
       {
         path:"/profile",
         element: <PrivateRoute><Profile></Profile></PrivateRoute>
+      },
+      {
+        path:"/dashboard",
+        element: <PrivateRoute><Dashboard></Dashboard></PrivateRoute>
       }
+
     ]
   },
 ]);

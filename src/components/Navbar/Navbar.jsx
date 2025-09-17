@@ -30,6 +30,7 @@ const Navbar = () => {
             <li><NavLink to='/' className={({isActive}) =>isActive ? 'bg-green-300 text-black font-bold' : ''}>Home</NavLink></li>
             <li><NavLink to='/login' className={({isActive}) =>isActive ? 'bg-green-300 text-black font-bold' : ''}>login</NavLink></li>
             <li><NavLink to='/register' className={({isActive}) =>isActive ? 'bg-green-300 text-black font-bold' : ''}>Register</NavLink></li>
+            <li><NavLink to='/dashboard' className={({isActive}) =>isActive ? 'bg-green-300 text-black font-bold' : ''}>Dashboard</NavLink></li>
             {
               user && 
               <>
