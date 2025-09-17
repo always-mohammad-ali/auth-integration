@@ -1,7 +1,31 @@
-import React from "react";
+import React, { use } from "react";
 import { Link } from "react-router-dom";
+import { FirebaseAuthContext } from "../contexts/FirebaseAuthContext";
 
 const Login = () => {
+
+  const {signInUser} = use(FirebaseAuthContext)
+
+  const handleLogin = e =>{
+
+       e.preventDefault();
+       
+       const email = e.target.email.value;
+       const password = e.target.password.value;
+       console.log(email, password)
+
+       signInUser(email, password)
+       .then(result =>{
+        console.log(result.user)
+       })
+       .catch(error =>{
+        console.log(error)
+       })
+      
+       
+       
+  }
+
   return (
     <div>
       <div className="text-center w-1/2 mx-auto   ">
@@ -11,7 +35,8 @@ const Login = () => {
           
           <div className=" bg-base-100 shadow-2xl">
             <div className="card-body text-center w-3/4 mx-auto">
-              <form className="fieldset">
+
+              <form onSubmit={handleLogin} className="fieldset">
                 
                 <label className="label">Email</label>
                 <input type="email" name="email" className="input" placeholder="Email" />
